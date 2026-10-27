@@ -336,7 +336,9 @@ jobs:
           - shard: lsm-vector
             tests: LSMVectorIndexTest
           - shard: rest
-            tests: '!LSMVectorIndexTest'
+            # A -Dtest made only of exclusions drops surefire's default includes and picks up classes like
+            # OpenCypherTCKSuite, so spell the default patterns out next to the exclusion.
+            tests: '**/Test*.java,**/*Test.java,**/*Tests.java,**/*TestCase.java,!**/LSMVectorIndexTest.java'
     permissions:
       contents: read
       checks: write
