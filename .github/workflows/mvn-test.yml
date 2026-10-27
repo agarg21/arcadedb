@@ -1,13 +1,7 @@
 name: Java CI - test
 
 on:
-  workflow_dispatch:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
+  workflow_dispatch:  # fork-only harness: dispatch only
 
 permissions:
   contents: read
